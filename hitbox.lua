@@ -1,7 +1,9 @@
 --[[
-    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
 -- leave a like pls
+
+
 _G.HeadSize = 10
 _G.Disabled = true
  
@@ -19,3 +21,4 @@ end)
 end
 end
 end
+end)
