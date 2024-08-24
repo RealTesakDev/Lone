@@ -35,15 +35,15 @@ if devbuild228 then
         version = "dev build"
     }
 end
-local title, title2 = '.gay pd | %s | %s | fps %s',
-    '<font color="rgb(0, 255, 0)">$</font> protogen<font color="rgb(166, 0, 255)">.gay</font> ' ..
-    (swimguardvars.isprivate and not swimguardvars.isdeveloper and 'private ' or swimguardvars.isdeveloper and 'developer ' or '') ..
-    '<font color="rgb(0, 255, 0)">$</font>'
+local title, title2 = '.rgb | %s | %s | fps %s',
+    '<font color="rgb(0, 255, 0)">nebula</font><font color="rgb(166, 0, 255)">.rgb</font> ' ..
+    (swimguardvars.isprivate and not swimguardvars.isdeveloper and ' ' or swimguardvars.isdeveloper and ' ' or '') ..
+    '<font color="rgb(0, 255, 0)"></font>'
 local loadprivate = swimguardvars.isprivate or swimguardvars.isdeveloper
 
 local function wrap(f) coroutine.resume(coroutine.create(f)) end
 local Library, Toggles, Options, ThemeManager, SaveManager, _esplib = nil, nil, nil, nil, nil, nil
-print("loading swimhub... please stand by...")
+print("loading nebula... please stand by...")
 print('load_' .. tostring(counter))
 counter = counter + 1
 do
@@ -179,12 +179,12 @@ local varsglobal = {
                 "\226\153\191"      --"♿"
             },
             [2] = {
-                "be swimhub",
-                "use swimhub",
-                "get swimhub",
-                "buy swimhub",
-                "swimhub is no longer a paste",
-                "skidhub never, swimhub forever",
+                "be nebula",
+                "use nebula",
+                "get nebula",
+                "buy nebula",
+                "nebula is no longer a paste",
+                "skidhub never, nebula forever",
                 "skibidihook and sigmaware on top",
             }
         },
@@ -258,51 +258,51 @@ local TabEsp = Tabs.Visuals:AddLeftTabbox()
 local EnemyEspTab = TabEsp:AddTab('esp/visuals')
 local cheat = { fonts = {} }
 if ({ identifyexecutor() })[1] == "Krampus" then
-    cheat.fonts.plex = Drawing.new("Font", "swimhub.plex")
-    cheat.fonts.mono = Drawing.new("Font", "swimhub.mono")
-    cheat.fonts.spixel7 = Drawing.new("Font", "swimhub.spixel7")
-    if not isfolder("swimhub") then
-        makefolder("swimhub")
+    cheat.fonts.plex = Drawing.new("Font", "nebula.plex")
+    cheat.fonts.mono = Drawing.new("Font", "nebula.mono")
+    cheat.fonts.spixel7 = Drawing.new("Font", "nebula.spixel7")
+    if not isfolder("nebula") then
+        makefolder("nebula")
     end
-    if not isfolder("swimhub/assets") then
-        makefolder("swimhub/assets")
+    if not isfolder("nebula/assets") then
+        makefolder("nebula/assets")
     end
-    if not isfile("swimhub/assets/plex.ttf") then
+    if not isfile("nebula/assets/plex.ttf") then
         local font
         local success, error = pcall(function()
             font = game:HttpGet("http://31.210.171.229:3000/assets/plex.ttf")
         end)
         if error then print("error while downloading font: " .. error) end
-        writefile("swimhub/assets/plex.ttf", font)
+        writefile("nebula/assets/plex.ttf", font)
     end
-    if not isfile("swimhub/assets/mono.ttf") then
+    if not isfile("nebula/assets/mono.ttf") then
         local font
         local success, error = pcall(function()
             font = game:HttpGet("http://31.210.171.229:3000/assets/mono.ttf")
         end)
         if error then print("error while downloading font: " .. error) end
-        writefile("swimhub/assets/mono.ttf", font)
+        writefile("nebula/assets/mono.ttf", font)
     end
-    if not isfile("swimhub/assets/spixel7.ttf") then
+    if not isfile("nebula/assets/spixel7.ttf") then
         local font
         local success, error = pcall(function()
             font = game:HttpGet("http://31.210.171.229:3000/assets/spixel7.ttf")
         end)
         if error then print("error while downloading font: " .. error) end
-        writefile("swimhub/assets/spixel7.ttf", font)
+        writefile("nebula/assets/spixel7.ttf", font)
     end
-    cheat.fonts["plex"].Data = readfile("swimhub/assets/plex.ttf")
-    cheat.fonts["mono"].Data = readfile("swimhub/assets/mono.ttf")
-    cheat.fonts["spixel7"].Data = readfile("swimhub/assets/spixel7.ttf")
+    cheat.fonts["plex"].Data = readfile("nebula/assets/plex.ttf")
+    cheat.fonts["mono"].Data = readfile("nebula/assets/mono.ttf")
+    cheat.fonts["spixel7"].Data = readfile("nebula/assets/spixel7.ttf")
 end
 print('load_' .. tostring(counter))
 counter = counter + 1
-EnemyEspTab:AddDropdown('swimhub font',
+EnemyEspTab:AddDropdown('nebula font',
     {
         Values = { 'UI', 'System', 'Plex', 'Monospace', 'spixel7', 'mono', 'plex' },
         Default = 1,
         Multi = false,
-        Text = 'swimhub font',
+        Text = 'nebula font',
         Tooltip = 'select font',
         Callback = function(Value)
             if Drawing.Fonts[Value] then
@@ -511,7 +511,7 @@ local Misc = Tabs.Misc:AddLeftGroupbox('misc1')
 local CrosshairTab = Tabs.Misc:AddLeftGroupbox('crosshair')
 local movetab = Tabs.Misc:AddRightGroupbox('misc2')
 local stuffz = Tabs.Settings:AddLeftGroupbox('stuffz')
-local luatab = Tabs.Lua:AddRightGroupbox('swimlua');
+local luatab = Tabs.Lua:AddRightGroupbox('nebula scripts');
 do
     local Sky = game:GetService("Lighting"):FindFirstChildOfClass("Sky")
     if not Sky then Sky = Instance.new("Sky", Lighting) end
@@ -611,7 +611,7 @@ end
         ZIndex = 2,
     })
     local logotext = draw:new("Text", {
-        Text = "protogen",
+        Text = "nebula",
         Size = 13,
         Font = varsglobal.visuals.font,
         Outline = true,
@@ -623,7 +623,7 @@ end
         ZIndex = 2,
     })
     local text = draw:new("Text", {
-        Text = ".gay | fps | ping",
+        Text = ".rgb | fps | ping",
         Size = 13,
         Font = varsglobal.visuals.font,
         Outline = true,
@@ -675,7 +675,7 @@ end
         );
     end))
 end)();
-makefolder("swimhub")
+makefolder("nebula")
 luatab:AddLabel("docs at dc server")
 local set_identity = (type(syn) == 'table' and syn.set_thread_identity) or setidentity or setthreadcontext
 luatab:AddLabel("not available")
@@ -865,7 +865,7 @@ do
         Color = Color3.fromRGB(138, 128, 255),
         ZIndex = 3,
         Transparency = 1,
-        Text = "protogen.gay",
+        Text = "nebula.rgb",
         Center = true,
         Outline = true,
     })
@@ -1280,7 +1280,7 @@ Misc:AddToggle('chatpsa1mcdstlbols', {
     end
 })
 Misc:AddInput('customwordtextbox', {
-    Default = 'protogen.gay on top',
+    Default = 'nebula.rgb on top',
     Numeric = false,
     Finished = false,
 
@@ -1299,16 +1299,16 @@ do
         local speed, enabled, pos, ytspam = 3, false, 1, false
         --[[local spam_words = {
             "Hack", "Cheat", "Roblox", "Mod Menu", "Mod", "Menu", "God Mode", "Kill All", "Silent", "Silent Aim", "X Ray", "Aim", "Bypass", "Glitch", "Wallhack", "ESP", "Dupe", "Dupe Script",
-            "SwimHub", "Server Backdoor", "Serverside", "2021", "Working", "(WORKING)", "瞄准无声目标绕过", "Gamesense", "Onetap", "PD Exploit", "Project Delt",
+            "nebula", "Server Backdoor", "Serverside", "2021", "Working", "(WORKING)", "瞄准无声目标绕过", "Gamesense", "Onetap", "PD Exploit", "Project Delt",
             "Cracked", "TP Hack", "PD MOD MENU", "DOWNLOAD", "Paste Bin", "download", "Download", "Teleport", "100% legit", "100%", "pro", "Professional", "灭性的神经",
-            "No Virus All Clean", "No Survey", "No Ads", "Free", "Not Paid", "Real", "REAL 2024", "2024", "Real 2024", "SwimHub", "Cracked", "SwimHub CRACKED", "2014", "picklespub crack",
-            "Aimware", "Hacks", "Cheats", "Exploits", "(FREE)", "🕶😎", "😎", "😂", "😛", "paste bin", "swimhub script", "hard code", "正免费下载和使", "SERVER BACKDOOR",
-            "Secret", "SECRET", "Unleaked", "Not Leaked", "Method", "Minecraft Steve", "Steve", "Minecraft", "Swim Hub", "Crumble Ware", "Script", "Octo Hook",
+            "No Virus All Clean", "No Survey", "No Ads", "Free", "Not Paid", "Real", "REAL 2024", "2024", "Real 2024", "nebula", "Cracked", "nebula CRACKED", "2014", "picklespub crack",
+            "Aimware", "Hacks", "Cheats", "Exploits", "(FREE)", "🕶😎", "😎", "😂", "😛", "paste bin", "nebula script", "hard code", "正免费下载和使", "SERVER BACKDOOR",
+            "Secret", "SECRET", "Unleaked", "Not Leaked", "Method", "Minecraft Steve", "Steve", "Minecraft", "nebula", "Crumble Ware", "Script", "Octo Hook",
             "(OP)", "Verified", "All Clean", "Program",
             "Anti Ban", "Speed", "Fly", "Big Head", "Magic Bullet", "No Clip", "Auto", "Rapid Fire",
             "God Mode", "God", "Speed Fly", "Magic Bullet", "Infinite XRay", "Kill All", "Sigma", "And", "LEAKED",
-            "🥳🥳🥳", "RELEASE", "IP RESOLVER", "Infinite Wall Bang", "Wall Bang", "Trickshot", "Sniper", "Wall Hack", "😍😍", "🤩", "🤑", "😱😱", "Free Download SwimHUB", "Taps", "Owns",
-            "Owns All", "Trolling", "Troll", "Grief", "Kill", "弗吉艾尺艾杰开", "swim", "kavkaznation", "JSON", "SWIMHUB Developers",
+            "🥳🥳🥳", "RELEASE", "IP RESOLVER", "Infinite Wall Bang", "Wall Bang", "Trickshot", "Sniper", "Wall Hack", "😍😍", "🤩", "🤑", "😱😱", "Free Download nebula", "Taps", "Owns",
+            "Owns All", "Trolling", "Troll", "Grief", "Kill", "弗吉艾尺艾杰开", "nebula", "kavkaznation", "JSON", "nebula Developers",
             "Server Hack", "Babies", "Children", "TAP", "Meme", "MEME", "Laugh", "LOL!", "Lol!", "ROFLSAUCE", "Rofl", ";p", ":D", "=D", "xD", "XD", "=>", "₽", "$", "8=>", "😹😹😹", "🎮🎮🎮", "🎱", "⭐", "✝",
             "Ransomware", "Malware", "SKID", "Pasted vw", "Encrypted", "Brute Force", "Cheat Code", "Hack Code", ";v", "No Ban", "Bot", "Editing", "Modification", "injection", "Bypass Anti Cheat",
             "铜色类别创意", "Cheat Exploit", "Hitbox Expansion", "Cheating AI", "Auto Wall Shoot", "Konami Code", "Debug", "Debug Menu", "🗿", "£", "¥", "₽", "₭", "€", "₿", "Meow", "MEOW", "meow",
@@ -1324,10 +1324,10 @@ do
             "坐下，一直保持着安静的状态。 谁把他拥有的东西给了他，所以他不那么爱欠债务，却拒  参加锻炼，这让他爱得更少了",
             ", yīzhí bǎochízhe ānjìng de zhuàngtài. Shéi bǎ tā yǒngyǒu de dōngxī gěile tā, suǒyǐ tā bù nàme ài qiàn zhàiwù, què jùjué cānjiā duànliàn, z",
             "他，所以他不那r给了他东西给了他爱欠s，却拒绝参加锻炼，这让他爱得更UGT少了",
-            "swimhub 有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
+            "nebula 有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
             "wocky slush他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼",
-            "坐下，一直保持着安静的状态swimhub 谁把他拥有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
-            "免费手榴弹swimhub hack绕过作弊工作Trident Surviv roblox aimbot瞄准无声目标绕过2020工作真正免费下载和使用",
+            "坐下，一直保持着安静的状态nebula 谁把他拥有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
+            "免费手榴弹nebula hack绕过作弊工作Trident Surviv roblox aimbot瞄准无声目标绕过2020工作真正免费下载和使用",
             "zal發明了roblox汽車貿易商的船長ro blocks，並將其洩漏到整個宇宙，還修補了虛假的角神模式和虛假的身體，還發明了基於速度的AUTOWALL和無限制的自動壁紙遊戲 ",
             "彼が誤って禁止されたためにファントムからautowallgamingを禁止解除する請願とそれはでたらめですそれはまったく意味がありませんなぜあなたは合法的なプレーヤーを禁止するのですか ",
             "ジェイソンは私が神に誓う女性的な男の子ではありません ",
@@ -1338,7 +1338,7 @@ do
             "brb taking a nap 💤💤💤 ",
             "gonna go take a walk 🚶‍♂️🚶‍♀️🚶‍♂️🚶‍♀️ ",
             "low orbit ion cannon booting up ",
-            "how does it feel to not have swimhub 🤣🤣🤣😂😂😹😹😹 ",
+            "how does it feel to not have nebula 🤣🤣🤣😂😂😹😹😹 ",
             "im a firing my laza! 🙀🙀🙀 ",
             "😂😂😂😂😂GAMING CHAIR😂😂😂😂😂",
             "retardheadass",
@@ -1350,7 +1350,7 @@ do
             "THE AMOUNT THAT I CARE --> 🤏 ",
             "🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏",
             "SORRY I HURT YOUR ROBLOX EGO BUT LOOK -> 🤏 I DON'T CARE ",
-            'table.find(charts, "any other script other than swimhub") -> nil 💵💵💵',
+            'table.find(charts, "any other script other than nebula") -> nil 💵💵💵',
             "LOL WHAT ARE YOU SHOOTING AT BRO ",
             "🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",
             "BRO UR SHOOTING AT LIKE NOTHING LOL UR A CLOWN",
@@ -1394,7 +1394,7 @@ do
             "🤏 <-- just to elaborate that i have no care for this situation or you at all, kid (not that you would understand anyways, you're too stupid to understand what i'm saying to begin with)",
             "y",
             "b",
-            "before swimhub 😭 📢                after swimhub 😁😁😜                    don't be like the person who doesn't have swimhub",
+            "before nebula 😭 📢                after nebula 😁😁😜                    don't be like the person who doesn't have nebula",
             "                            MADE YOU LOOK ",
             "                            LOOK BRO LOOK LOOK AT ME ",
             "    A    ",
@@ -1403,20 +1403,20 @@ do
             "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                WATCH YOUR STEP KID",
             "BROOOO HE HAS                                                                                                        GOD MODE BRO HE HAS GOD MODE 🚶‍♀️🚶‍♀️🚶‍♀️😜😂😂🤦‍♂️🤦‍♂️😭😭😭👶",
             '"guys what hub has auto shooting"                                                                                                         ',
-            "god i wish i had swimhub..... 🙏🙏🥺🥺🥺                                                    plzzzzz brooooo 🛐 GIVE IT🛐🛐",
+            "god i wish i had nebula..... 🙏🙏🥺🥺🥺                                                    plzzzzz brooooo 🛐 GIVE IT🛐🛐",
             "swum huh                                                 ",
             "votekick him!!!!!!! 😠 vk VK VK VK VOTEKICK HIM!!!!!!!!! 😠 😢 VOTE KICK !!!!! PRESS Y WHY DIDNT U PRESS Y LOL!!!!!! 😭 ", -- shufy made this
-            "Swimhub omg omggg omggg its SwimHub its SwimHub OMGGG!!!  🙏🙏🥺🥺😌😒😡",
-            "HOw do you get ACCESS to this SWIMHUB ", -- end
-            "I NEED ACCESS 🔑🔓 TO SWIMHUB 🤖📃📃📃 👈 THIS THING CALLED SWIMHUB SCRIPT, I NEED IT ",
+            "nebula omg omggg omggg its nebula its nebula OMGGG!!!  🙏🙏🥺🥺😌😒😡",
+            "HOw do you get ACCESS to this nebula ", -- end
+            "I NEED ACCESS 🔑🔓 TO nebula 🤖📃📃📃 👈 THIS THING CALLED nebula SCRIPT, I NEED IT ",
             '"this god mode guy is annoying", Pr0blematicc says as he loses roblox hvh ',
             "you can call me king of spades 🦹‍♂️🦹‍♂️ cause i turned your screen black ⬛⬛⬛⬛                                     ",
             "clipped that 🤡 ",
             "Clipped and Uploaded. 🤡",
             "nodus client slime castle crashers minecraft dupeing hack wizardhax xronize grief ... Tlcharger minecraft crack Oggi spiegheremo come creare un ip grabber!",
             "Off synonyme syls midge, smiled at mashup 2 mixed in key free download procom, ... Okay, love order and chaos online gameplayer hack amber forcen ahdistus",
-            "ˢᵗᵃʸ ᵐᵃᵈ ˢᵗᵃʸ ˢʷⁱᵐʰᵘᵇˡᵉˢˢ $ ",
-            "swimhub does not relent ",
+            "ˢᵗᵃʸ ᵐᵃᵈ ˢᵗᵃʸ nebulaˡᵉˢˢ $ ",
+            "nebula does not relent ",
         }]]
         local spam_ytthumbs = {
             "\72\97\99\107",
@@ -1729,8 +1729,8 @@ end)
             print(txt)
         end)
         Misc:AddInput('chatboxtest', {Default = 'hello there',Numeric = false,Finished = false,Text = 'chat',Tooltip = 'chat',Placeholder = 'enter text'})
-        Misc:AddButton('send message in swimhub chat', function()
-            socket:Send("swimhub_"..rand..":-/-:"..tostring(Options.chatboxtest.Value))
+        Misc:AddButton('send message in nebula chat', function()
+            socket:Send("nebula_"..rand..":-/-:"..tostring(Options.chatboxtest.Value))
         end)
     end
 end;]]
@@ -1860,8 +1860,8 @@ end))
 ThemeManager:SetLibrary(Library)
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
-ThemeManager:SetFolder('swimhub')
-SaveManager:SetFolder('swimhub')
+ThemeManager:SetFolder('nebula')
+SaveManager:SetFolder('nebula')
 SaveManager:BuildConfigSection(Tabs.Settings)
 ThemeManager:ApplyToGroupbox(stuffz)
 print('load_' .. tostring(counter))
